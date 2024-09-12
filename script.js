@@ -10,7 +10,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "A feijoada é um prato que foi exclusivamente desenvolvido na Europa e não tem conexão com a história do racismo ou a cultura afro-brasileira .",
-                afirmacao: " A feijoada, embora originalmente um prato associado a culinária afro-brasileira, pode ser usado como um meio de promover a preservação cultural e discutir questões de racismo no Brasil."
+                afirmacao: " ",
+            },
+            {
+                texto: " A feijoada, embora originalmente um prato associado a culinária afro-brasileira, pode ser usado como um meio de promover a preservação cultural e discutir questões de racismo no Brasil.",
+                afirmacao: " "
             },
         ]
     },
@@ -19,7 +23,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Ao enfatizar a feijoada apenas como um prato de origem europeia, a promoção da feijoada não contribui para a desmistificação de estereótipos raciais nem para a preservação agroecológica.",
-                afirmacao: "Promover a feijoada como um símbolo da diversidade cultural, destacando sua conexão com práticas agroecológicas e a herança afro-brasileira, pode ajudar a combater estereótipos raciais ao reconhecer e valorizar a contribuição cultural e a importância ambiental dos ingredientes."
+                afirmacao: " ",
+            },
+            {
+                texto: "Promover a feijoada como um símbolo da diversidade cultural, destacando sua conexão com práticas agroecológicas e a herança afro-brasileira, pode ajudar a combater estereótipos raciais ao reconhecer e valorizar a contribuição cultural e a importância ambiental dos ingredientes.",
+                afirmacao: " "
             },
         ]
     },
@@ -28,7 +36,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "A feijoada preserva tradições culturais afro-brasileiras, mas também reflete desigualdades e racismo histórico, pois ingredientes mais nobres eram consumidos pela elite branca, enquanto os cortes simples eram para as populações afrodescendentes ",
-                afirmacao: "A feijoada não tem nenhuma relação com a culinária afro-brasileira ou com a história da desigualdade social no Brasil. ela é simplesmente um prato típico de qualquer cozinha brasileira, sem conexão com aspectos culturais ou históricos específicos das comunidades afrodescendentes. "
+                afirmacao: " ",
+            },
+            {
+                texto: "A feijoada não tem nenhuma relação com a culinária afro-brasileira ou com a história da desigualdade social no Brasil. ela é simplesmente um prato típico de qualquer cozinha brasileira, sem conexão com aspectos culturais ou históricos específicos das comunidades afrodescendentes. ",
+                afirmacao: " "
             },
         ]
     },
@@ -37,7 +49,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: " A feijoada, embora considerada um prato típico e tradicional do Brasil, tem suas origens na culinária dos escravizados africanos, refletindo as relações de poder e opressão da época.",
-                afirmacao: "A história da feijoada pode ilustrar as desigualdades sociais e raciais, destacando a necessidade de uma reavaliação crítica das tradições e da forma como elas são interpretadas e celebradas."
+                afirmacao: " "
+            },
+            {
+                texto: "A história da feijoada pode ilustrar as desigualdades sociais e raciais, destacando a necessidade de uma reavaliação crítica das tradições e da forma como elas são interpretadas e celebradas.",
+                afirmacao: " "
             },
         ]
     },
@@ -46,7 +62,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "A preservação da feijoada como símbolo cultural afro-brasileiro está intrinsecamente ligada tanto à sua resistência ao racismo quanto à sua valorização contemporânea. ",
-                afirmacao: " A feijoada é preservada principalmente por ser um prato que não tem relação com a cultura afro-brasileira, mas sim com tradições de outras regiões do Brasil."
+                afirmacao: " "
+            },
+            {
+                texto: " A feijoada é preservada principalmente por ser um prato que não tem relação com a cultura afro-brasileira, mas sim com tradições de outras regiões do Brasil.",
+                afirmacao: " "
             },
         ]
     },
@@ -54,11 +74,15 @@ const perguntas = [
         enunciado: "Como a preservação da agroecologia pode ajudar a combater o racismo estrutural na produção de alimentos tradicionais, como a feijoada, no Brasil?",
         alternativas: [
             {
-               texto:  " Ao promover a sustentabilidade e o respeito às culturas tradicionais, a agroecologia valoriza a contribuição afro-brasileira à culinária, como a feijoada, e combate o racismo ao garantir que essas práticas sejam respeitadas e preservadas.",
-                afirmacao: " Ao incentivar a produção em larga escala de alimentos tradicionais, a agroecologia contribui para a uniformização das práticas alimentares, minimizando as diferenças culturais e, consequentemente, combatendo o racismo."
+                texto:  " Ao promover a sustentabilidade e o respeito às culturas tradicionais, a agroecologia valoriza a contribuição afro-brasileira à culinária, como a feijoada, e combate o racismo ao garantir que essas práticas sejam respeitadas e preservadas.",
+                afirmacao: " "
+            },
+            {
+                texto: " Ao incentivar a produção em larga escala de alimentos tradicionais, a agroecologia contribui para a uniformização das práticas alimentares, minimizando as diferenças culturais e, consequentemente, combatendo o racismo.",
+                afirmacao: " "
             }
         ]
-    }
+    },
 ];
 
 let atual = 0;
@@ -72,7 +96,7 @@ function mostraPergunta() {
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaPerguntas.textContent = "";
+    caixaAlternativas.textContent = "";
     caixaResultado.textContent = "";
     mostraAlternativas();
 }
@@ -81,7 +105,7 @@ function mostraAlternativas() {
     for (const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecioada(alternativa));
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
